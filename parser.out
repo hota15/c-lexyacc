@@ -1,0 +1,491 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> statements
+Rule 1     statements -> statement
+Rule 2     statements -> statements statement
+Rule 3     statement -> if_statement
+Rule 4     statement -> else_if_statement
+Rule 5     statement -> else_statement
+Rule 6     statement -> other_statement
+Rule 7     statement -> empty_statement
+Rule 8     if_statement -> IF LPAREN expressions RPAREN LBRACE expressions RBRACE
+Rule 9     else_if_statement -> ELSE IF LPAREN expressions RPAREN LBRACE expressions RBRACE
+Rule 10    else_statement -> ELSE LBRACE expressions RBRACE
+Rule 11    other_statement -> IDENTIFIER SEMICOLON
+Rule 12    empty_statement -> SEMICOLON
+Rule 13    expressions -> expression
+Rule 14    expressions -> expressions expression
+Rule 15    expression -> IDENTIFIER
+Rule 16    expression -> CONDITION
+Rule 17    expression -> SEMICOLON
+
+Terminals, with rules where they appear
+
+CONDITION            : 16
+ELSE                 : 9 10
+IDENTIFIER           : 11 15
+IF                   : 8 9
+LBRACE               : 8 9 10
+LPAREN               : 8 9
+RBRACE               : 8 9 10
+RPAREN               : 8 9
+SEMICOLON            : 11 12 17
+error                : 
+
+Nonterminals, with rules where they appear
+
+else_if_statement    : 4
+else_statement       : 5
+empty_statement      : 7
+expression           : 13 14
+expressions          : 8 8 9 9 10 14
+if_statement         : 3
+other_statement      : 6
+statement            : 1 2
+statements           : 2 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statements
+    (1) statements -> . statement
+    (2) statements -> . statements statement
+    (3) statement -> . if_statement
+    (4) statement -> . else_if_statement
+    (5) statement -> . else_statement
+    (6) statement -> . other_statement
+    (7) statement -> . empty_statement
+    (8) if_statement -> . IF LPAREN expressions RPAREN LBRACE expressions RBRACE
+    (9) else_if_statement -> . ELSE IF LPAREN expressions RPAREN LBRACE expressions RBRACE
+    (10) else_statement -> . ELSE LBRACE expressions RBRACE
+    (11) other_statement -> . IDENTIFIER SEMICOLON
+    (12) empty_statement -> . SEMICOLON
+
+    IF              shift and go to state 8
+    ELSE            shift and go to state 9
+    IDENTIFIER      shift and go to state 10
+    SEMICOLON       shift and go to state 11
+
+    statements                     shift and go to state 1
+    statement                      shift and go to state 2
+    if_statement                   shift and go to state 3
+    else_if_statement              shift and go to state 4
+    else_statement                 shift and go to state 5
+    other_statement                shift and go to state 6
+    empty_statement                shift and go to state 7
+
+state 1
+
+    (0) S' -> statements .
+    (2) statements -> statements . statement
+    (3) statement -> . if_statement
+    (4) statement -> . else_if_statement
+    (5) statement -> . else_statement
+    (6) statement -> . other_statement
+    (7) statement -> . empty_statement
+    (8) if_statement -> . IF LPAREN expressions RPAREN LBRACE expressions RBRACE
+    (9) else_if_statement -> . ELSE IF LPAREN expressions RPAREN LBRACE expressions RBRACE
+    (10) else_statement -> . ELSE LBRACE expressions RBRACE
+    (11) other_statement -> . IDENTIFIER SEMICOLON
+    (12) empty_statement -> . SEMICOLON
+
+    IF              shift and go to state 8
+    ELSE            shift and go to state 9
+    IDENTIFIER      shift and go to state 10
+    SEMICOLON       shift and go to state 11
+
+    statement                      shift and go to state 12
+    if_statement                   shift and go to state 3
+    else_if_statement              shift and go to state 4
+    else_statement                 shift and go to state 5
+    other_statement                shift and go to state 6
+    empty_statement                shift and go to state 7
+
+state 2
+
+    (1) statements -> statement .
+
+    IF              reduce using rule 1 (statements -> statement .)
+    ELSE            reduce using rule 1 (statements -> statement .)
+    IDENTIFIER      reduce using rule 1 (statements -> statement .)
+    SEMICOLON       reduce using rule 1 (statements -> statement .)
+    $end            reduce using rule 1 (statements -> statement .)
+
+
+state 3
+
+    (3) statement -> if_statement .
+
+    IF              reduce using rule 3 (statement -> if_statement .)
+    ELSE            reduce using rule 3 (statement -> if_statement .)
+    IDENTIFIER      reduce using rule 3 (statement -> if_statement .)
+    SEMICOLON       reduce using rule 3 (statement -> if_statement .)
+    $end            reduce using rule 3 (statement -> if_statement .)
+
+
+state 4
+
+    (4) statement -> else_if_statement .
+
+    IF              reduce using rule 4 (statement -> else_if_statement .)
+    ELSE            reduce using rule 4 (statement -> else_if_statement .)
+    IDENTIFIER      reduce using rule 4 (statement -> else_if_statement .)
+    SEMICOLON       reduce using rule 4 (statement -> else_if_statement .)
+    $end            reduce using rule 4 (statement -> else_if_statement .)
+
+
+state 5
+
+    (5) statement -> else_statement .
+
+    IF              reduce using rule 5 (statement -> else_statement .)
+    ELSE            reduce using rule 5 (statement -> else_statement .)
+    IDENTIFIER      reduce using rule 5 (statement -> else_statement .)
+    SEMICOLON       reduce using rule 5 (statement -> else_statement .)
+    $end            reduce using rule 5 (statement -> else_statement .)
+
+
+state 6
+
+    (6) statement -> other_statement .
+
+    IF              reduce using rule 6 (statement -> other_statement .)
+    ELSE            reduce using rule 6 (statement -> other_statement .)
+    IDENTIFIER      reduce using rule 6 (statement -> other_statement .)
+    SEMICOLON       reduce using rule 6 (statement -> other_statement .)
+    $end            reduce using rule 6 (statement -> other_statement .)
+
+
+state 7
+
+    (7) statement -> empty_statement .
+
+    IF              reduce using rule 7 (statement -> empty_statement .)
+    ELSE            reduce using rule 7 (statement -> empty_statement .)
+    IDENTIFIER      reduce using rule 7 (statement -> empty_statement .)
+    SEMICOLON       reduce using rule 7 (statement -> empty_statement .)
+    $end            reduce using rule 7 (statement -> empty_statement .)
+
+
+state 8
+
+    (8) if_statement -> IF . LPAREN expressions RPAREN LBRACE expressions RBRACE
+
+    LPAREN          shift and go to state 13
+
+
+state 9
+
+    (9) else_if_statement -> ELSE . IF LPAREN expressions RPAREN LBRACE expressions RBRACE
+    (10) else_statement -> ELSE . LBRACE expressions RBRACE
+
+    IF              shift and go to state 14
+    LBRACE          shift and go to state 15
+
+
+state 10
+
+    (11) other_statement -> IDENTIFIER . SEMICOLON
+
+    SEMICOLON       shift and go to state 16
+
+
+state 11
+
+    (12) empty_statement -> SEMICOLON .
+
+    IF              reduce using rule 12 (empty_statement -> SEMICOLON .)
+    ELSE            reduce using rule 12 (empty_statement -> SEMICOLON .)
+    IDENTIFIER      reduce using rule 12 (empty_statement -> SEMICOLON .)
+    SEMICOLON       reduce using rule 12 (empty_statement -> SEMICOLON .)
+    $end            reduce using rule 12 (empty_statement -> SEMICOLON .)
+
+
+state 12
+
+    (2) statements -> statements statement .
+
+    IF              reduce using rule 2 (statements -> statements statement .)
+    ELSE            reduce using rule 2 (statements -> statements statement .)
+    IDENTIFIER      reduce using rule 2 (statements -> statements statement .)
+    SEMICOLON       reduce using rule 2 (statements -> statements statement .)
+    $end            reduce using rule 2 (statements -> statements statement .)
+
+
+state 13
+
+    (8) if_statement -> IF LPAREN . expressions RPAREN LBRACE expressions RBRACE
+    (13) expressions -> . expression
+    (14) expressions -> . expressions expression
+    (15) expression -> . IDENTIFIER
+    (16) expression -> . CONDITION
+    (17) expression -> . SEMICOLON
+
+    IDENTIFIER      shift and go to state 19
+    CONDITION       shift and go to state 20
+    SEMICOLON       shift and go to state 21
+
+    expressions                    shift and go to state 17
+    expression                     shift and go to state 18
+
+state 14
+
+    (9) else_if_statement -> ELSE IF . LPAREN expressions RPAREN LBRACE expressions RBRACE
+
+    LPAREN          shift and go to state 22
+
+
+state 15
+
+    (10) else_statement -> ELSE LBRACE . expressions RBRACE
+    (13) expressions -> . expression
+    (14) expressions -> . expressions expression
+    (15) expression -> . IDENTIFIER
+    (16) expression -> . CONDITION
+    (17) expression -> . SEMICOLON
+
+    IDENTIFIER      shift and go to state 19
+    CONDITION       shift and go to state 20
+    SEMICOLON       shift and go to state 21
+
+    expressions                    shift and go to state 23
+    expression                     shift and go to state 18
+
+state 16
+
+    (11) other_statement -> IDENTIFIER SEMICOLON .
+
+    IF              reduce using rule 11 (other_statement -> IDENTIFIER SEMICOLON .)
+    ELSE            reduce using rule 11 (other_statement -> IDENTIFIER SEMICOLON .)
+    IDENTIFIER      reduce using rule 11 (other_statement -> IDENTIFIER SEMICOLON .)
+    SEMICOLON       reduce using rule 11 (other_statement -> IDENTIFIER SEMICOLON .)
+    $end            reduce using rule 11 (other_statement -> IDENTIFIER SEMICOLON .)
+
+
+state 17
+
+    (8) if_statement -> IF LPAREN expressions . RPAREN LBRACE expressions RBRACE
+    (14) expressions -> expressions . expression
+    (15) expression -> . IDENTIFIER
+    (16) expression -> . CONDITION
+    (17) expression -> . SEMICOLON
+
+    RPAREN          shift and go to state 24
+    IDENTIFIER      shift and go to state 19
+    CONDITION       shift and go to state 20
+    SEMICOLON       shift and go to state 21
+
+    expression                     shift and go to state 25
+
+state 18
+
+    (13) expressions -> expression .
+
+    RPAREN          reduce using rule 13 (expressions -> expression .)
+    IDENTIFIER      reduce using rule 13 (expressions -> expression .)
+    CONDITION       reduce using rule 13 (expressions -> expression .)
+    SEMICOLON       reduce using rule 13 (expressions -> expression .)
+    RBRACE          reduce using rule 13 (expressions -> expression .)
+
+
+state 19
+
+    (15) expression -> IDENTIFIER .
+
+    RPAREN          reduce using rule 15 (expression -> IDENTIFIER .)
+    IDENTIFIER      reduce using rule 15 (expression -> IDENTIFIER .)
+    CONDITION       reduce using rule 15 (expression -> IDENTIFIER .)
+    SEMICOLON       reduce using rule 15 (expression -> IDENTIFIER .)
+    RBRACE          reduce using rule 15 (expression -> IDENTIFIER .)
+
+
+state 20
+
+    (16) expression -> CONDITION .
+
+    RPAREN          reduce using rule 16 (expression -> CONDITION .)
+    IDENTIFIER      reduce using rule 16 (expression -> CONDITION .)
+    CONDITION       reduce using rule 16 (expression -> CONDITION .)
+    SEMICOLON       reduce using rule 16 (expression -> CONDITION .)
+    RBRACE          reduce using rule 16 (expression -> CONDITION .)
+
+
+state 21
+
+    (17) expression -> SEMICOLON .
+
+    RPAREN          reduce using rule 17 (expression -> SEMICOLON .)
+    IDENTIFIER      reduce using rule 17 (expression -> SEMICOLON .)
+    CONDITION       reduce using rule 17 (expression -> SEMICOLON .)
+    SEMICOLON       reduce using rule 17 (expression -> SEMICOLON .)
+    RBRACE          reduce using rule 17 (expression -> SEMICOLON .)
+
+
+state 22
+
+    (9) else_if_statement -> ELSE IF LPAREN . expressions RPAREN LBRACE expressions RBRACE
+    (13) expressions -> . expression
+    (14) expressions -> . expressions expression
+    (15) expression -> . IDENTIFIER
+    (16) expression -> . CONDITION
+    (17) expression -> . SEMICOLON
+
+    IDENTIFIER      shift and go to state 19
+    CONDITION       shift and go to state 20
+    SEMICOLON       shift and go to state 21
+
+    expressions                    shift and go to state 26
+    expression                     shift and go to state 18
+
+state 23
+
+    (10) else_statement -> ELSE LBRACE expressions . RBRACE
+    (14) expressions -> expressions . expression
+    (15) expression -> . IDENTIFIER
+    (16) expression -> . CONDITION
+    (17) expression -> . SEMICOLON
+
+    RBRACE          shift and go to state 27
+    IDENTIFIER      shift and go to state 19
+    CONDITION       shift and go to state 20
+    SEMICOLON       shift and go to state 21
+
+    expression                     shift and go to state 25
+
+state 24
+
+    (8) if_statement -> IF LPAREN expressions RPAREN . LBRACE expressions RBRACE
+
+    LBRACE          shift and go to state 28
+
+
+state 25
+
+    (14) expressions -> expressions expression .
+
+    RPAREN          reduce using rule 14 (expressions -> expressions expression .)
+    IDENTIFIER      reduce using rule 14 (expressions -> expressions expression .)
+    CONDITION       reduce using rule 14 (expressions -> expressions expression .)
+    SEMICOLON       reduce using rule 14 (expressions -> expressions expression .)
+    RBRACE          reduce using rule 14 (expressions -> expressions expression .)
+
+
+state 26
+
+    (9) else_if_statement -> ELSE IF LPAREN expressions . RPAREN LBRACE expressions RBRACE
+    (14) expressions -> expressions . expression
+    (15) expression -> . IDENTIFIER
+    (16) expression -> . CONDITION
+    (17) expression -> . SEMICOLON
+
+    RPAREN          shift and go to state 29
+    IDENTIFIER      shift and go to state 19
+    CONDITION       shift and go to state 20
+    SEMICOLON       shift and go to state 21
+
+    expression                     shift and go to state 25
+
+state 27
+
+    (10) else_statement -> ELSE LBRACE expressions RBRACE .
+
+    IF              reduce using rule 10 (else_statement -> ELSE LBRACE expressions RBRACE .)
+    ELSE            reduce using rule 10 (else_statement -> ELSE LBRACE expressions RBRACE .)
+    IDENTIFIER      reduce using rule 10 (else_statement -> ELSE LBRACE expressions RBRACE .)
+    SEMICOLON       reduce using rule 10 (else_statement -> ELSE LBRACE expressions RBRACE .)
+    $end            reduce using rule 10 (else_statement -> ELSE LBRACE expressions RBRACE .)
+
+
+state 28
+
+    (8) if_statement -> IF LPAREN expressions RPAREN LBRACE . expressions RBRACE
+    (13) expressions -> . expression
+    (14) expressions -> . expressions expression
+    (15) expression -> . IDENTIFIER
+    (16) expression -> . CONDITION
+    (17) expression -> . SEMICOLON
+
+    IDENTIFIER      shift and go to state 19
+    CONDITION       shift and go to state 20
+    SEMICOLON       shift and go to state 21
+
+    expressions                    shift and go to state 30
+    expression                     shift and go to state 18
+
+state 29
+
+    (9) else_if_statement -> ELSE IF LPAREN expressions RPAREN . LBRACE expressions RBRACE
+
+    LBRACE          shift and go to state 31
+
+
+state 30
+
+    (8) if_statement -> IF LPAREN expressions RPAREN LBRACE expressions . RBRACE
+    (14) expressions -> expressions . expression
+    (15) expression -> . IDENTIFIER
+    (16) expression -> . CONDITION
+    (17) expression -> . SEMICOLON
+
+    RBRACE          shift and go to state 32
+    IDENTIFIER      shift and go to state 19
+    CONDITION       shift and go to state 20
+    SEMICOLON       shift and go to state 21
+
+    expression                     shift and go to state 25
+
+state 31
+
+    (9) else_if_statement -> ELSE IF LPAREN expressions RPAREN LBRACE . expressions RBRACE
+    (13) expressions -> . expression
+    (14) expressions -> . expressions expression
+    (15) expression -> . IDENTIFIER
+    (16) expression -> . CONDITION
+    (17) expression -> . SEMICOLON
+
+    IDENTIFIER      shift and go to state 19
+    CONDITION       shift and go to state 20
+    SEMICOLON       shift and go to state 21
+
+    expressions                    shift and go to state 33
+    expression                     shift and go to state 18
+
+state 32
+
+    (8) if_statement -> IF LPAREN expressions RPAREN LBRACE expressions RBRACE .
+
+    IF              reduce using rule 8 (if_statement -> IF LPAREN expressions RPAREN LBRACE expressions RBRACE .)
+    ELSE            reduce using rule 8 (if_statement -> IF LPAREN expressions RPAREN LBRACE expressions RBRACE .)
+    IDENTIFIER      reduce using rule 8 (if_statement -> IF LPAREN expressions RPAREN LBRACE expressions RBRACE .)
+    SEMICOLON       reduce using rule 8 (if_statement -> IF LPAREN expressions RPAREN LBRACE expressions RBRACE .)
+    $end            reduce using rule 8 (if_statement -> IF LPAREN expressions RPAREN LBRACE expressions RBRACE .)
+
+
+state 33
+
+    (9) else_if_statement -> ELSE IF LPAREN expressions RPAREN LBRACE expressions . RBRACE
+    (14) expressions -> expressions . expression
+    (15) expression -> . IDENTIFIER
+    (16) expression -> . CONDITION
+    (17) expression -> . SEMICOLON
+
+    RBRACE          shift and go to state 34
+    IDENTIFIER      shift and go to state 19
+    CONDITION       shift and go to state 20
+    SEMICOLON       shift and go to state 21
+
+    expression                     shift and go to state 25
+
+state 34
+
+    (9) else_if_statement -> ELSE IF LPAREN expressions RPAREN LBRACE expressions RBRACE .
+
+    IF              reduce using rule 9 (else_if_statement -> ELSE IF LPAREN expressions RPAREN LBRACE expressions RBRACE .)
+    ELSE            reduce using rule 9 (else_if_statement -> ELSE IF LPAREN expressions RPAREN LBRACE expressions RBRACE .)
+    IDENTIFIER      reduce using rule 9 (else_if_statement -> ELSE IF LPAREN expressions RPAREN LBRACE expressions RBRACE .)
+    SEMICOLON       reduce using rule 9 (else_if_statement -> ELSE IF LPAREN expressions RPAREN LBRACE expressions RBRACE .)
+    $end            reduce using rule 9 (else_if_statement -> ELSE IF LPAREN expressions RPAREN LBRACE expressions RBRACE .)
+
